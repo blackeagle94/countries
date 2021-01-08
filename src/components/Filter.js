@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 
 function Filter(props) {
-	const onChange = (e) => {
-		props.filterNames(e.target.value);
+
+	const onChange = (input) => {
+		props.filterNames(input);
 	};
     const regions = (e) => {
         props.filterRegion(e.target.value)
     }
 	return (
 		<div className="row filter">
-			<div className="col"><input className="form-control" name="name" onChange={onChange} type="text"  placeholder="Enter Country name..." /></div>
+			<div className="col"><input className="form-control" name="name" onChange={(e) => onChange(e.target.value)} type="text"  placeholder="Enter Country name..." /></div>
  
             {props.countries.length == 1 ? <button className="col btn btn-primary " onClick={() => props.mainPage()}>Back to Manin Page</button>  : ''}
 

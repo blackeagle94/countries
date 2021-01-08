@@ -5,6 +5,7 @@ import Filter from './components/Filter';
 import Headers from './components/Header';
 import { countriesAll } from './data/countriesAll';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import  Google  from './components/Google';
 
 const asia = countriesAll.filter((item) => item.region == 'Asia');
 const africa = countriesAll.filter((item) => item.region == 'Africa');
@@ -181,7 +182,6 @@ class App extends Component {
 	};
 
 	render() {
-		console.log(asia, africa, americas, europe, oceania, polar);
 		return (
 			<div className="">
 				<Headers />
@@ -191,13 +191,14 @@ class App extends Component {
 					filterRegion={this.filterRegion}
 					filterNames={this.filterNames}
 				/>
-				<Countries
+        <Google />
+				{/* <Countries
 					filterNames={this.filterNames}
 					details={this.state.isClicked}
 					isClicked={this.isClicked}
 					countries={this.state.countries}
 					countriesAll={countriesAll}
-				/>
+				/> */}
 			</div>
 		);
 	}
